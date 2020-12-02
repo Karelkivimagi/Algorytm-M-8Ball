@@ -1,3 +1,4 @@
+// Input field
 <label for="fname">Ask a question:</label>
 <input type="text" id="question" name="question"><br><br>
 <input type="submit" onclick="showDiv();" value="Submit" />
@@ -5,17 +6,18 @@
 <div  id="vastus"></div>
 <script src="https://algorithmia.com/v1/clients/js/algorithmia-0.2.1.js" type="text/javascript"></script>
 <script>
-
-            function showDiv() {
-                var input = document.getElementById('question').value;
+            
+// Algoritm script
+function showDiv() {
+            var input = document.getElementById('question').value;
             document.getElementById('vastus').style.display = 'block';
             Algorithmia.client("sim80WUsPJdmHeMJRxm59/TnCkN1")
-  .algo("imrehg/Magic8Ball/0.1.0?timeout=5") // timeout is optional
-  .pipe(input)
-  .then(function(output) { 
-      document.getElementById("vastus").innerHTML = output.result;
-      console.log(input)
-  });
+                       .algo("imrehg/Magic8Ball/0.1.0?timeout=5") // timeout is optional
+                       .pipe(input)
+                       .then(function(output) { 
+                        document.getElementById("vastus").innerHTML = output.result;
+                        console.log(input)
+            });
         }
 </script>  
 
